@@ -14,7 +14,7 @@ import java.io.OutputStreamWriter
 @RequestMapping("/api/hanoi")
 class HanoiController {
 
-    @GetMapping("/{n}", produces = [TEXT_PLAIN_VALUE])
+    @GetMapping("/{n}", produces = [APPLICATION_JSON_VALUE, APPLICATION_NDJSON_VALUE, TEXT_PLAIN_VALUE])
     fun streamMoves(
         @PathVariable n: Int,
     ): ResponseEntity<StreamingResponseBody> {
@@ -39,7 +39,7 @@ class HanoiController {
     }
 
     private fun writeMove(from: Int, to: Int, writer: BufferedWriter) {
-        val json = """{"from": $from, "to": $to}"""
+        val json = """{"start": $from, "end": $to}"""
         writer.write(json)
         writer.newLine()
         writer.flush()
