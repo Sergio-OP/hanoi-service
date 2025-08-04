@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # Copia el JAR generado
-COPY build/libs/hanoi-service-0.0.1-SNAPSHOT.jar app.jar
+COPY tarjet/hanoi-service-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
